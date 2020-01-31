@@ -1,0 +1,36 @@
+[package]
+name = "inconceivable"
+version = "0.9.0"
+authors = ["Cody Laeder <codylaeder@gmail.com>"]
+keywords = ["panic", "ub", "inconceivable", "unreachable"]
+categories = ["no-std", "configuration"]
+description = """
+`inconceivable!` is a macro which closely parallels `std::unreachable`, or `std::panic`.
+The primary difference is that when this crate is
+configured with the `ub_inconceivable` option it will emit
+the `core::hint::unreachable_unchecked` to hint
+for the compiler to understand a condition should
+never occur.
+
+Generally compiler(s) (the LLVM) assume UB won't happen.
+This macro offers the "best of both worlds", it provides a solid
+way of asserting/testing behavior in local builds, but also
+a way of stripping branches out of final release builds.
+
+Please Note: This crate is created purely to inject undefined
+behavior into stable, safe rust. Systematic usage is unwise,
+and not recommended.
+"""
+license = "MIT"
+edition = "2015"
+build = "build.rs"
+
+[build-dependencies]
+rustc_version = "0.2"
+
+[features]
+default = ["std"]
+std = []
+ub_inconceivable = []
+RUSTC_VERSION_GE_1_27 = []
+

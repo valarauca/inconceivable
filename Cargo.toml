@@ -4,6 +4,9 @@ version = "0.9.0"
 authors = ["Cody Laeder <codylaeder@gmail.com>"]
 keywords = ["panic", "ub", "inconceivable", "unreachable"]
 categories = ["no-std", "configuration"]
+homepage = "https://github.com/valarauca/inconceivable"
+documentation = "https://github.com/valarauca/inconceivable"
+repository = "https://github.com/valarauca/inconceivable"
 description = """
 `inconceivable!` is a macro which closely parallels `std::unreachable`, or `std::panic`.
 The primary difference is that when this crate is

@@ -49,7 +49,7 @@ macro_rules! inconceivable {
         }
 
 
-        #[cfg(not(all(feature = "ub_inconceivable", feature = "RUSTC_VERSION_GE_1_27")))]
+        #[cfg(any(not(feature = "ub_inconceivable"), not(feature = "RUSTC_VERSION_GE_1_27")))]
         {
             unreachable!()
         }
@@ -68,7 +68,7 @@ macro_rules! inconceivable {
         }
 
 
-        #[cfg(not(all(feature = "ub_inconceivable", feature = "RUSTC_VERSION_GE_1_27")))]
+        #[cfg(any(not(feature = "ub_inconceivable"), not(feature = "RUSTC_VERSION_GE_1_27")))]
         {
             unreachable!($msg)
         }
@@ -87,7 +87,7 @@ macro_rules! inconceivable {
         }
 
 
-        #[cfg(not(all(feature = "ub_inconceivable", feature = "RUSTC_VERSION_GE_1_27")))]
+        #[cfg(any(not(feature = "ub_inconceivable"), not(feature = "RUSTC_VERSION_GE_1_27")))]
         {
             unreachable!($msg)
         }
@@ -105,7 +105,7 @@ macro_rules! inconceivable {
             unsafe{ std::hint::unreachable_unchecked() }
         }
 
-        #[cfg(not(all(feature = "ub_inconceivable", feature = "RUSTC_VERSION_GE_1_27")))]
+        #[cfg(any(not(feature = "ub_inconceivable"), not(feature = "RUSTC_VERSION_GE_1_27")))]
         {
             unreachable!($fmt, $($arg)*)
         }
